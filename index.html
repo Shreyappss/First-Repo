@@ -1,0 +1,801 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shreya Dhar | Resume</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f7f8fc;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111827;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #60a5fa;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #111827, #1e3a8a);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #bfdbfe;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #e5e7eb;
+            font-size: 1.05rem;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        .secondary {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #111827;
+        }
+
+        .section-title p {
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #4b5563;
+        }
+
+        /* EDUCATION */
+        .education-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .education-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #2563eb;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .education-card h3 {
+            color: #111827;
+            margin-bottom: 5px;
+        }
+
+        .education-card .institution {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .education-card .grade {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* EXPERIENCE */
+        .experience-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .experience-card h3 {
+            color: #111827;
+        }
+
+        .experience-card .company {
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .experience-card .date {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 5px 0 12px;
+        }
+
+        /* SKILLS */
+        .skills-container {
+            max-width: 950px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: #1e3a8a;
+        }
+
+        .skill {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 7px 13px;
+            border-radius: 20px;
+            margin: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* PROJECTS */
+        .projects-container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .project-card p {
+            color: #6b7280;
+        }
+
+        /* ACHIEVEMENTS */
+        .achievements {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .achievement {
+            background: white;
+            padding: 18px 25px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: #111827;
+            color: white;
+        }
+
+        .contact h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #d1d5db;
+            margin: 8px;
+        }
+
+        .contact a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #030712;
+            color: #9ca3af;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">Shreya Dhar</div>
+
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Shreya Dhar</h1>
+
+            <h2>
+                Computer Science & Engineering Student | AI & ML
+            </h2>
+
+            <p>
+                Computer Science undergraduate passionate about
+                Artificial Intelligence, Machine Learning, software development,
+                problem solving, technology and public affairs.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="btn primary">
+                    Contact Me
+                </a>
+
+                <a href="#projects" class="btn secondary">
+                    View My Work
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>A little about my academic and professional journey</p>
+        </div>
+
+        <div class="about">
+
+            <p>
+                I am a Computer Science and Engineering student specializing
+                in Artificial Intelligence and Machine Learning at
+                IEM Kolkata.
+            </p>
+
+            <br>
+
+            <p>
+                I am interested in AI/ML, software development, data structures
+                and algorithms, full-stack development, finance, economics
+                and technology-driven problem solving.
+            </p>
+
+            <br>
+
+            <p>
+                Alongside academics, I actively participate in Model United
+                Nations, debates and public-affairs discussions, which have
+                helped me develop research, communication, leadership and
+                analytical skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-title">
+            <h2>Education</h2>
+            <p>Academic background and grades</p>
+        </div>
+
+        <div class="education-container">
+
+            <div class="education-card">
+
+                <h3>B.Tech in Computer Science & Engineering (AI & ML)</h3>
+
+                <div class="institution">
+                    Institute of Engineering & Management, Kolkata
+                </div>
+
+                <p>2025 – Present</p>
+
+                <p class="grade">
+                    Current CGPA: 8.57
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>Higher Secondary Education</h3>
+
+                <div class="institution">
+                    Add your school name here
+                </div>
+
+                <p>Class XII</p>
+
+                <p class="grade">
+                    Percentage: XX%
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>Secondary Education</h3>
+
+                <div class="institution">
+                    Add your school name here
+                </div>
+
+                <p>Class X</p>
+
+                <p class="grade">
+                    Percentage: XX%
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+
+        <div class="section-title">
+            <h2>Work Experience</h2>
+            <p>Professional experience and leadership</p>
+        </div>
+
+        <div class="experience-container">
+
+            <!-- EXPERIENCE 1 -->
+
+            <div class="experience-card">
+
+                <h3>External Affairs / Organising Team</h3>
+
+                <div class="company">
+                    IEMMUN
+                </div>
+
+                <div class="date">
+                    2026 – Present
+                </div>
+
+                <p>
+                    Worked on delegate outreach, external communications,
+                    partnerships, institutional coordination and event
+                    promotion for Model United Nations conferences.
+                </p>
+
+            </div>
+
+
+            <!-- EXPERIENCE 2 -->
+
+            <div class="experience-card">
+
+                <h3>Debate & Public Affairs</h3>
+
+                <div class="company">
+                    IEM / College Activities
+                </div>
+
+                <div class="date">
+                    2025 – Present
+                </div>
+
+                <p>
+                    Participated in debates, Model United Nations conferences
+                    and public-policy discussions involving politics, economics,
+                    international relations and social issues.
+                </p>
+
+            </div>
+
+
+            <!-- ADD MORE EXPERIENCE HERE -->
+
+            <div class="experience-card">
+
+                <h3>Your Position / Internship</h3>
+
+                <div class="company">
+                    Company / Organisation Name
+                </div>
+
+                <div class="date">
+                    Month Year – Month Year
+                </div>
+
+                <p>
+                    Add a short description of your responsibilities,
+                    achievements and contributions here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>Skills</h2>
+            <p>Technical and professional skills</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill-category">
+
+                <h3>Programming</h3>
+
+                <span class="skill">C</span>
+                <span class="skill">Python</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Computer Science</h3>
+
+                <span class="skill">Data Structures</span>
+                <span class="skill">Algorithms</span>
+                <span class="skill">DBMS</span>
+                <span class="skill">OOP</span>
+                <span class="skill">AI/ML</span>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Professional Skills</h3>
+
+                <span class="skill">Public Speaking</span>
+                <span class="skill">Debating</span>
+                <span class="skill">Research</span>
+                <span class="skill">Leadership</span>
+                <span class="skill">Teamwork</span>
+                <span class="skill">Communication</span>
+
+            </div>
+
+
+            <div class="skill-category">
+
+                <h3>Interests</h3>
+
+                <span class="skill">Artificial Intelligence</span>
+                <span class="skill">Technology</span>
+                <span class="skill">Finance</span>
+                <span class="skill">Economics</span>
+                <span class="skill">Public Policy</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>Projects</h2>
+            <p>Things I have built and worked on</p>
+        </div>
+
+        <div class="projects-container">
+
+
+            <div class="project-card">
+
+                <h3>Resume Website</h3>
+
+                <p>
+                    A responsive personal portfolio and resume website
+                    developed using HTML, CSS and JavaScript.
+                </p>
+
+                <br>
+
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
+                <span class="skill">JavaScript</span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>Data Structures Projects</h3>
+
+                <p>
+                    Implemented arrays, stacks, queues, linked lists,
+                    trees and graph algorithms as part of DSA coursework.
+                </p>
+
+                <br>
+
+                <span class="skill">C</span>
+                <span class="skill">DSA</span>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>AI/ML Project</h3>
+
+                <p>
+                    Add your AI/ML project description here, including
+                    the problem solved, dataset used and model implemented.
+                </p>
+
+                <br>
+
+                <span class="skill">Python</span>
+                <span class="skill">Machine Learning</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+
+        <div class="section-title">
+            <h2>Achievements & Activities</h2>
+            <p>Beyond academics</p>
+        </div>
+
+        <div class="achievements">
+
+            <div class="achievement">
+                🏆 Active participant in Model United Nations conferences
+            </div>
+
+            <div class="achievement">
+                🎤 Participated in competitive debating and public speaking
+            </div>
+
+            <div class="achievement">
+                🌐 Worked with the External Affairs team of IEMMUN
+            </div>
+
+            <div class="achievement">
+                📚 Academic focus on Computer Science, AI and Machine Learning
+            </div>
+
+            <div class="achievement">
+                🧠 Interested in politics, economics, finance and public policy
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+        <h2>Let's Connect</h2>
+
+        <p>
+            I am always open to interesting opportunities,
+            collaborations and conversations.
+        </p>
+
+        <p>
+            📧
+            <a href="mailto:your.email@example.com">
+                your.email@example.com
+            </a>
+        </p>
+
+        <p>
+            💼
+            <a href="https://www.linkedin.com/" target="_blank">
+                LinkedIn
+            </a>
+        </p>
+
+        <p>
+            💻
+            <a href="https://github.com/" target="_blank">
+                GitHub
+            </a>
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Shreya Dhar. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        // Simple welcome message in the browser console
+        console.log("Welcome to Shreya's Resume Website!");
+
+    </script>
+
+</body>
+</html>
+```
